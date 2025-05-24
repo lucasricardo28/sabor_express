@@ -19,35 +19,37 @@ def show_options():
     print('3 - Ativar restaurante!')
     print('4 - Sair \n')
 
-def exit_program():
-    os.system('clear')
-    print("Encerrando programa! \n")
-
-def invalid_option():
-    print("Operacao inválida! \n")
-    input("Digito inválido, clique uma tecla para iniciar novamente!")
-    os.system('clear')
-    main()
-
-def create_new_restaurant():
-    os.system("clear")
-    new_restaurant = input("Digite o nome do novo restaurante: ")
-    restauranteList.append(new_restaurant)
-    print(f"Novo restaurante {new_restaurant} cadastrado com sucesso!")
+def restart_app():
     input("\nDigite uma nova tecla para iniciar novamente ")
     os.system("clear")
     main()
 
-def show_restaurante_list():
+def show_subtitle(text):
     os.system("clear")
-    print("Listagem dos restaurantes cadastrados! \n")
+    print(text)
+    print()
+
+def exit_program():
+    show_subtitle("Encerrando programa!")
+
+def invalid_option():
+    print("Operacao inválida! \n")
+    restart_app()
+
+def create_new_restaurant():
+    show_subtitle("Adicionando novo restaurante!")
+    new_restaurant = input("Digite o nome do novo restaurante: ")
+    restauranteList.append(new_restaurant)
+    print(f"Novo restaurante: {new_restaurant} - cadastrado com sucesso!")
+    restart_app()
+
+def show_restaurante_list():
+    show_subtitle("Listagem dos restaurantes cadastrados!")
 
     for restaurant in restauranteList:
         print(f'. {restaurant}')
 
-    input("\nDigite uma nova tecla para iniciar novamente ")
-    os.system("clear")
-    main()
+    restart_app()
 
 def choice_option():
     try:
