@@ -1,6 +1,11 @@
 import os
 
-restauranteList = ['Pizza', 'Suchi']
+restauranteList = [
+    {'name': "Piazza", 'category': 'Italian', 'is_active': False},
+    {'name': "Suchi", 'category': 'Japonese', 'is_active': True},
+    {'name': "Tacos", 'category': 'Mexican', 'is_active': False},
+    {'name': "Coxinhas", 'category': 'Brazilian', 'is_active': True},
+]
 
 def show_program_name():
     print("""
@@ -47,7 +52,11 @@ def show_restaurante_list():
     show_subtitle("Listagem dos restaurantes cadastrados!")
 
     for restaurant in restauranteList:
-        print(f'. {restaurant}')
+        name = restaurant['name']
+        category = restaurant['category']
+        is_active = restaurant['is_active']
+
+        print(f'. {name} - {category} - {is_active}')
 
     restart_app()
 
