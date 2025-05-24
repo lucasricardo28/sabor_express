@@ -12,5 +12,13 @@ print('2 - Listar restaurante')
 print('3 - Ativar restaurante')
 print('4 - Sair \n')
 
-choiced_option = input('Escolha uma opção: ')
-print(f'Você escolheu a opção: {choiced_option}.')
+choiced_option = int(input('Escolha uma opção: '))
+
+if choiced_option == 1:
+    print('Cadastrar restaurante')
+elif choiced_option == 2:
+    print('Listar restaurantes')
+elif choiced_option == 3:
+    print('Ativar restaurante')
+else:
+    print('Encerrar programa')
