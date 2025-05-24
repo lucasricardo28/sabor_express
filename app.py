@@ -21,17 +21,28 @@ def exit_program():
     os.system('clear')
     print("Encerrando programa! \n")
 
-def choice_option():
-    choiced_option = int(input('Escolha uma opção: '))
+def invalid_option():
+    print("Operacao inválida! \n")
+    input("Digito inválido, clique uma tecla para iniciar novamente!")
+    os.system('clear')
+    main()
 
-    if choiced_option == 1:
-        print('Cadastrar restaurante')
-    elif choiced_option == 2:
-        print('Listar restaurantes')
-    elif choiced_option == 3:
-        print('Ativar restaurante')
-    else:
-        exit_program()
+def choice_option():
+    try:
+        choiced_option = int(input('Escolha uma opção: '))
+
+        if choiced_option == 1:
+            print('Cadastrar restaurante')
+        elif choiced_option == 2:
+            print('Listar restaurantes')
+        elif choiced_option == 3:
+            print('Ativar restaurante')
+        elif choiced_option == 4:
+            exit_program()
+        else :
+            invalid_option()
+    except:
+        invalid_option()
 
 def main():
     show_program_name()
