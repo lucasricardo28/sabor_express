@@ -8,6 +8,7 @@ restauranteList = [
 ]
 
 def show_program_name():
+    ''' Visualizar nome da aplicação! '''
     print("""
     ░██████╗░█████╗░██████╗░░█████╗░██████╗░  ███████╗██╗░░██╗██████╗░██████╗░███████╗░██████╗░██████╗
     ██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗  ██╔════╝╚██╗██╔╝██╔══██╗██╔══██╗██╔════╝██╔════╝██╔════╝
@@ -19,17 +20,20 @@ def show_program_name():
 
 
 def show_options():
+    ''' Mostrar o menu de opções da aplicação.'''
     print('1 - Cadastrar restaurante!')
     print('2 - Listar restaurante!')
     print('3 - Alternar estado do restaurante!')
     print('4 - Sair \n')
 
 def restart_app():
+    ''' Comando para reiniciar a aplicação.'''
     input("\nDigite uma nova tecla para iniciar novamente ")
     os.system("clear")
     main()
 
 def show_subtitle(text):
+    '''Mostrar subtitulo ao selecionar menu.'''
     os.system("clear")
     linha = '*' * (len(text) + 2)
     print(linha)
@@ -38,13 +42,25 @@ def show_subtitle(text):
     print()
 
 def exit_program():
+    '''Encerramento do programa!'''
     show_subtitle("Encerrando programa!")
 
 def invalid_option():
+    ''' Mensagem para o usuario que informou dado errado!'''
     print("Operacao inválida! \n")
     restart_app()
 
 def create_new_restaurant():
+    '''
+    Criando um novo restaurante 
+
+    Inputs:
+    - Nome do restaurante 
+    - Categoria do restaurante 
+
+    Outputs:
+    - Adicionando novo restaurante na lista de restaurantes
+    '''
     show_subtitle("Adicionando novo restaurante!")
     
     restaurant_name = input("Digite o nome do novo restaurante: ")
@@ -56,6 +72,7 @@ def create_new_restaurant():
     restart_app()
 
 def show_restaurante_list():
+    ''' Mostrando lista dos restaurantes cadastrados!'''
     show_subtitle("Listagem dos restaurantes cadastrados!")
 
     print(f'{'Nome do restaurante'.ljust(22)} | {'Categoria'.ljust(20)} | Status ')
@@ -70,6 +87,12 @@ def show_restaurante_list():
     restart_app()
 
 def update_status_restaurant():
+    '''
+    Atualizando status de um restaurante
+    
+    Inputs:
+    - Nome do restaurante para alterar status 
+    '''
     show_subtitle("Editando status do restaurante!")
 
     restaurante_to_find = input("Informe o nome do restaurante: ")
@@ -84,10 +107,10 @@ def update_status_restaurant():
     if not has_found_restaurant:
         print('Nenhum restaurante encontrado!')
 
-
     restart_app()
 
 def choice_option():
+    ''' Escolhendo opcao para executar uma acao. '''
     try:
         choiced_option = int(input('Escolha uma opção: '))
 
@@ -105,6 +128,7 @@ def choice_option():
         invalid_option()
 
 def main():
+    ''' Funcao princiapl do programa!'''
     show_program_name()
     show_options()
     choice_option()
