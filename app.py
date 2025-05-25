@@ -43,9 +43,13 @@ def invalid_option():
 
 def create_new_restaurant():
     show_subtitle("Adicionando novo restaurante!")
-    new_restaurant = input("Digite o nome do novo restaurante: ")
-    restauranteList.append(new_restaurant)
-    print(f"Novo restaurante: {new_restaurant} - cadastrado com sucesso!")
+    
+    restaurant_name = input("Digite o nome do novo restaurante: ")
+    restaurant_category = input(f"Digite a categoria do restaurante {restaurant_name}: ")
+    
+    restaurant_data = {'name': restaurant_name, 'category': restaurant_category, 'is_active': False}
+    restauranteList.append(restaurant_data)
+    print(f"Novo restaurante: {restaurant_name} - cadastrado com sucesso!")
     restart_app()
 
 def show_restaurante_list():
